@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cooperativa Santa Ana — Cuerinas artificiales al por mayor, Gerli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#241F1B; --graphite-2:#2E2721;
+    --parchment:#F1EAD9; --parchment-2:#E7DDC6;
+    --wine:#6E2A2E; --wine-deep:#471C1F;
+    --brass:#B08D57; --brass-deep:#7A5E37;
+    --ink:#211B16; --ink-soft:#5B5142;
+    --line: rgba(33,27,22,0.14); --line-light: rgba(241,234,217,0.16);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--parchment);color:var(--ink);font-family:'Inter',sans-serif;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;margin:0;letter-spacing:-0.01em;}
+  p{margin:0;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  .stitch{height:0;border-top:2px dashed var(--brass);opacity:0.5;}
+
+  .hero{background:var(--graphite);color:var(--parchment);padding:58px 0 46px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--brass);border:1px solid var(--line-light);padding:6px 14px;border-radius:100px;}
+  .hero h1{font-size:44px;font-weight:700;margin-top:16px;color:var(--parchment);line-height:1.05;}
+  .hero-sub{margin-top:14px;font-size:16px;color:#D8CDBB;max-width:52ch;line-height:1.6;}
+  .hero-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;align-items:center;}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--wine);color:var(--parchment);font-weight:600;font-size:15px;padding:13px 22px;border-radius:8px;text-decoration:none;transition:background 0.15s ease, transform 0.15s ease;}
+  .btn:hover{background:#84343a;transform:translateY(-1px);}
+  .btn.outline{background:transparent;border:1px solid var(--line-light);color:var(--parchment);}
+  .meta-row{display:flex;flex-wrap:wrap;gap:26px;margin-top:30px;font-size:13px;color:#C7BBA6;}
+  .meta-row span{display:block;color:var(--parchment);font-weight:600;font-size:15px;margin-top:3px;}
+
+  .section{padding:50px 0;}
+  .section-head{margin-bottom:26px;max-width:60ch;}
+  .eyebrow{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--wine-deep);}
+  .section-head h2{font-size:27px;font-weight:700;margin-top:8px;}
+  .section-head p{margin-top:8px;color:var(--ink-soft);font-size:15px;line-height:1.55;}
+
+  .swatch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;}
+  .swatch-card{background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .swatch-img{height:120px;position:relative;}
+  .swatch-img::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg, rgba(255,255,255,0.10) 0 3px, transparent 3px 7px);}
+  .swatch-body{padding:14px 16px;}
+  .swatch-body h3{font-size:15px;font-weight:600;}
+  .swatch-body p{font-size:13px;color:var(--ink-soft);margin-top:4px;}
+  .swatch-link{margin-top:10px;display:inline-flex;font-size:13px;font-weight:600;color:var(--wine-deep);text-decoration:none;}
+  .swatch-note{font-size:12px;color:var(--ink-soft);margin-top:22px;border-top:1px dashed var(--line);padding-top:14px;}
+
+  .uses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+  .use-card{background:var(--parchment-2);border:1px solid var(--line);border-radius:12px;padding:20px;}
+  .use-card h3{font-size:15px;font-weight:600;}
+  .use-card p{font-size:13px;color:var(--ink-soft);margin-top:6px;line-height:1.5;}
+
+  .info-strip{background:var(--graphite-2);color:var(--parchment);}
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;padding:42px 0;}
+  .info-item p{font-size:14px;margin-top:8px;color:#D8CDBB;line-height:1.55;}
+
+  .footer-cta{padding:54px 0;text-align:center;}
+  .footer-cta h2{font-size:25px;font-weight:700;max-width:28ch;margin:0 auto 18px;}
+  .footer-note{font-size:13px;color:var(--ink-soft);margin-top:20px;}
+
+  @media (max-width:600px){ .hero h1{font-size:32px;} .hero{padding:42px 0 36px;} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">Cooperativa textil · Gerli</span>
+    <h1>Cooperativa Santa Ana</h1>
+    <p class="hero-sub">Cuerinas artificiales al por mayor para tapicería, indumentaria, calzado y marroquinería. Muestras a pedido y despacho a todo el país.</p>
+    <div class="hero-row">
+      <a class="btn" id="heroOrder" href="#" target="_blank" rel="noopener">Consultar por WhatsApp →</a>
+      <a class="btn outline" href="#catalogo">Ver catálogo</a>
+    </div>
+    <div class="meta-row">
+      <div>Ubicación<span>Gerli, Buenos Aires</span></div>
+      <div>Contacto<span>+54 11 2879-0514</span></div>
+      <div>Venta<span>Por rollo y por metro</span></div>
+    </div>
+  </div>
+</header>
+<div class="stitch"></div>
+
+<section class="section" id="catalogo">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Catálogo</p>
+      <h2>Colores y terminaciones disponibles</h2>
+      <p>Esta es una muestra de ejemplo del catálogo — la vamos a reemplazar por fotos reales de los rollos y terminaciones apenas las tengamos.</p>
+    </div>
+    <div class="swatch-grid" id="swatchGrid"></div>
+    <p class="swatch-note">¿No encontrás el color o la terminación que buscás? Escribinos y te confirmamos stock y muestras disponibles.</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--parchment-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Aplicaciones</p>
+      <h2>Para qué la usan nuestros clientes</h2>
+    </div>
+    <div class="uses-grid">
+      <div class="use-card"><h3>Tapicería de muebles</h3><p>Sillones, sillas y respaldos para mueblerías y tapiceros.</p></div>
+      <div class="use-card"><h3>Indumentaria</h3><p>Camperas, accesorios y detalles en prendas.</p></div>
+      <div class="use-card"><h3>Calzado y marroquinería</h3><p>Carteras, cinturones, mochilas y calzado.</p></div>
+      <div class="use-card"><h3>Tapicería vehicular</h3><p>Butacas y detalles interiores para autos y motos.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--parchment-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Fotos y video</p>
+      <h2>Así trabajamos</h2>
+    </div>
+
+    <!--
+      GALERÍA DE FOTOS REALES:
+      1. En tu repositorio de GitHub creá una carpeta llamada "images".
+      2. Subí ahí tus fotos (ej: rollo1.jpg, taller1.jpg, muestras1.jpg).
+      3. Reemplazá cada src="images/..." de abajo por el nombre real del archivo que subiste.
+    -->
+    <div class="swatch-grid" style="margin-bottom:24px;">
+      <img src="images/rollo1.jpg" alt="Rollo de cuerina en el taller" style="width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--line);">
+      <img src="images/taller1.jpg" alt="Taller de Cooperativa Santa Ana" style="width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--line);">
+      <img src="images/muestras1.jpg" alt="Muestras de colores" style="width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--line);">
+    </div>
+
+    <!--
+      VIDEO:
+      1. Subí tu video a YouTube (podés dejarlo como "No listado" para que no aparezca en búsquedas, y solo se vea acá).
+      2. Copiá el ID del video (la parte final de la URL, después de "v=").
+      3. Reemplazá TU_ID_DE_VIDEO de abajo por ese ID.
+    -->
+    <div style="position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);">
+      <iframe src="https://www.youtube.com/embed/TU_ID_DE_VIDEO" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Visitanos</p>
+      <h2>Encontranos en Google Maps</h2>
+      <p>Si ya nos compraste, nos ayuda muchísimo que dejes tu reseña — es lo que hace que más gente nos encuentre.</p>
+    </div>
+
+    <!--
+      MAPA Y RESEÑAS:
+      1. Una vez que tengas tu ficha de Google Business Profile activa, andá a Google Maps, buscá tu negocio,
+         tocá "Compartir" y copiá el link — reemplazá GOOGLE_MAPS_LINK por ese link.
+      2. Desde el mismo "Compartir" también podés elegir "Insertar un mapa" para tener el iframe embebido (opcional).
+      3. Para el link de reseñas: en Google Business Profile hay una opción "Pedir reseñas" que genera un link corto
+         que lleva directo al cuadro de reseña — reemplazá GOOGLE_REVIEW_LINK por ese.
+    -->
+    <div class="hero-row" style="margin-top:6px;">
+      <a class="btn" href="GOOGLE_MAPS_LINK" target="_blank" rel="noopener">Ver en Google Maps →</a>
+      <a class="btn outline" style="color:var(--wine-deep);border-color:var(--wine-deep);" href="GOOGLE_REVIEW_LINK" target="_blank" rel="noopener">Dejanos tu reseña ⭐</a>
+    </div>
+  </div>
+</section>
+
+<div class="info-strip">
+  <div class="wrap">
+    <div class="info-grid">
+      <div class="info-item"><p class="eyebrow" style="color:var(--brass);">Cómo comprar</p><p>Pedís por WhatsApp indicando color, ancho de rollo y metraje. Te confirmamos stock, precio mayorista y tiempo de entrega.</p></div>
+      <div class="info-item"><p class="eyebrow" style="color:var(--brass);">Muestras</p><p>Podemos enviar muestras físicas antes de una compra grande para que verifiques color y textura.</p></div>
+      <div class="info-item"><p class="eyebrow" style="color:var(--brass);">Envíos</p><p>Despachamos a todo el país. Consultá el costo y tiempo según tu localidad.</p></div>
+    </div>
+  </div>
+</div>
+
+<section class="footer-cta">
+  <div class="wrap">
+    <h2>Contanos qué estás buscando y te asesoramos</h2>
+    <a class="btn" id="footerOrder" href="#" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
+    <p class="footer-note">Cooperativa Santa Ana · Gerli, Buenos Aires · Venta mayorista de cuerinas artificiales</p>
+  </div>
+</section>
+
+<script>
+  const PHONE = "541128790514";
+  const swatches = [
+    { name: "Cuero liso negro", desc: "Terminación mate, uso general en tapicería.", color: "#1C1A18" },
+    { name: "Símil cuero marrón", desc: "Tono cuero clásico, grano medio.", color: "#5C3A28" },
+    { name: "Blanco perforado", desc: "Con microperforado, ideal para asientos.", color: "#E9E4D8" },
+    { name: "Bordó texturado", desc: "Textura relieve, uso decorativo y tapicería.", color: "#6E2A2E" },
+    { name: "Gris topo", desc: "Tono neutro, alta rotación en muebles.", color: "#6B655A" },
+    { name: "Metalizada plata", desc: "Terminación brillante, uso en moda y accesorios.", color: "#A9A9A3" }
+  ];
+
+  const grid = document.getElementById("swatchGrid");
+  swatches.forEach(s => {
+    const card = document.createElement("div");
+    card.className = "swatch-card";
+    const text = "Hola! Vi el catálogo de Cooperativa Santa Ana y quiero consultar por " + s.name + ".";
+    const link = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text);
+    card.innerHTML =
+      '<div class="swatch-img" style="background:' + s.color + ';"></div>' +
+      '<div class="swatch-body">' +
+        '<h3>' + s.name + '</h3>' +
+        '<p>' + s.desc + '</p>' +
+        '<a class="swatch-link" href="' + link + '" target="_blank" rel="noopener">Consultar este color →</a>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+
+  const generalLink = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent("Hola! Quiero consultar por cuerinas artificiales de Cooperativa Santa Ana.");
+  document.getElementById("heroOrder").href = generalLink;
+  document.getElementById("footerOrder").href = generalLink;
+</script>
+
+</body>
+</html>
