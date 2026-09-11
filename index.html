@@ -24,7 +24,12 @@
 
   .stitch{height:0;border-top:2px dashed var(--brass);opacity:0.5;}
 
-  .hero{background:var(--graphite);color:var(--parchment);padding:58px 0 46px;}
+  .hero{
+    background:
+      linear-gradient(180deg, rgba(36,31,27,0.72), rgba(36,31,27,0.88)),
+      var(--graphite) url('images/portada.jpg') center/cover no-repeat;
+    color:var(--parchment);padding:58px 0 46px;
+  }
   .badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--brass);border:1px solid var(--line-light);padding:6px 14px;border-radius:100px;}
   .hero h1{font-size:44px;font-weight:700;margin-top:16px;color:var(--parchment);line-height:1.05;}
   .hero-sub{margin-top:14px;font-size:16px;color:#D8CDBB;max-width:52ch;line-height:1.6;}
@@ -128,11 +133,9 @@
       3. Reemplazá cada src="images/..." de abajo por el nombre real del archivo que subiste.
     -->
     <div class="swatch-grid" style="margin-bottom:24px;">
-      <img src="images/rollo1.jpeg" alt="Muestra de producto" style="width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--line);">
-      <img src="images/rollo2.jpeg" alt="Uso que le dan nuestros clientes" style="width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--line);">
-      <img src="images/rollo3.jpeg" alt="Muestras de colores" style="width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--line);">
-      <img src="images/rollo4.jpeg" alt="Muestras de colores" style="width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--line);">
-      <img src="images/rollo5.jpeg" alt="Muestras de distintos grabados" style="width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--line);">
+      <img src="images/rollo1.jpg" alt="Rollo de cuerina en el taller" style="width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--line);">
+      <img src="images/taller1.jpg" alt="Taller de Cooperativa Santa Ana" style="width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--line);">
+      <img src="images/muestras1.jpg" alt="Muestras de colores" style="width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--line);">
     </div>
 
     <!--
@@ -142,7 +145,7 @@
       3. Reemplazá TU_ID_DE_VIDEO de abajo por ese ID.
     -->
     <div style="position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);">
-      <iframe src="https://youtube.com/shorts/bzwCPBbQ5xo?feature=share" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/bzwCPBbQ5xo" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -191,29 +194,42 @@
 <script>
   const PHONE = "541128790514";
   const swatches = [
-    { name: "Cuero liso negro", desc: "Terminación mate, uso general en tapicería.", color: "#1C1A18" },
-    { name: "Símil cuero marrón", desc: "Tono cuero clásico, grano medio.", color: "#5C3A28" },
-    { name: "Blanco perforado", desc: "Con microperforado, ideal para asientos.", color: "#E9E4D8" },
-    { name: "Bordó texturado", desc: "Textura relieve, uso decorativo y tapicería.", color: "#6E2A2E" },
-    { name: "Gris topo", desc: "Tono neutro, alta rotación en muebles.", color: "#6B655A" },
-    { name: "Metalizada plata", desc: "Terminación brillante, uso en moda y accesorios.", color: "#A9A9A3" }
+    { name: "Angus", desc: "Textura relativamente fina y discreta. Muy versátil: asientos, interiores, muebles.", color: "#8A6A4E" },
+    { name: "Balcana", desc: "Grabado más marcado. Ideal para tapicería general y automotor.", color: "#6E4B34" },
+    { name: "Antideslizante", desc: "Superficie con textura pensada para aumentar el agarre. Pisos, laterales, zonas donde no querés que resbale.", color: "#4A3C33" },
+    { name: "Bizon", desc: "Apariencia tipo cuero, granulada — pensada para dar un aspecto más natural.", color: "#5C3A28" },
+    { name: "Nate", desc: "Otro tramado/textura comercial. La terminación puede variar según el lote disponible.", color: "#7A5C42" }
   ];
 
   const grid = document.getElementById("swatchGrid");
   swatches.forEach(s => {
     const card = document.createElement("div");
     card.className = "swatch-card";
-    const text = "Hola! Vi el catálogo de Cooperativa Santa Ana y quiero consultar por " + s.name + ".";
+    const text = "Hola! Vi el catálogo de Cooperativa Santa Ana y quiero consultar por el grabado " + s.name + ".";
     const link = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text);
     card.innerHTML =
       '<div class="swatch-img" style="background:' + s.color + ';"></div>' +
       '<div class="swatch-body">' +
         '<h3>' + s.name + '</h3>' +
         '<p>' + s.desc + '</p>' +
-        '<a class="swatch-link" href="' + link + '" target="_blank" rel="noopener">Consultar este color →</a>' +
+        '<a class="swatch-link" href="' + link + '" target="_blank" rel="noopener">Consultar este grabado →</a>' +
       '</div>';
     grid.appendChild(card);
   });
+
+  // Tarjeta para consultar por grabados que no están listados en el catálogo
+  const otherCard = document.createElement("div");
+  otherCard.className = "swatch-card";
+  const otherText = "Hola! Estoy buscando un grabado de cuerina que no vi en el catálogo, ¿me pueden asesorar?";
+  const otherLink = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(otherText);
+  otherCard.innerHTML =
+    '<div class="swatch-img" style="background:repeating-linear-gradient(45deg, var(--parchment-2) 0 10px, var(--line) 10px 11px);"></div>' +
+    '<div class="swatch-body">' +
+      '<h3>¿Buscás otro grabado?</h3>' +
+      '<p>Trabajamos con más opciones además de las que ves acá. Consultanos y te asesoramos.</p>' +
+      '<a class="swatch-link" href="' + otherLink + '" target="_blank" rel="noopener">Consultar otras opciones →</a>' +
+    '</div>';
+  grid.appendChild(otherCard);
 
   const generalLink = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent("Hola! Quiero consultar por cuerinas artificiales de Cooperativa Santa Ana.");
   document.getElementById("heroOrder").href = generalLink;
