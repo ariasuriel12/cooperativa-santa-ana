@@ -48,8 +48,13 @@
 
   .swatch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;}
   .swatch-card{background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
-  .swatch-img{height:120px;position:relative;}
-  .swatch-img::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg, rgba(255,255,255,0.10) 0 3px, transparent 3px 7px);}
+  .swatch-img{
+  width:100%;
+  height:180px;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+}
   .swatch-body{padding:14px 16px;}
   .swatch-body h3{font-size:15px;font-weight:600;}
   .swatch-body p{font-size:13px;color:var(--ink-soft);margin-top:4px;}
@@ -196,12 +201,32 @@
 <script>
   const PHONE = "541130801864";
   const swatches = [
-    { name: "Angus", desc: "Textura relativamente fina y discreta. Muy versátil: asientos, interiores, muebles.", color: "#8A6A4E" },
-    { name: "Balcana", desc: "Grabado más marcado. Ideal para tapicería general y automotor.", color: "#6E4B34" },
-    { name: "Antideslizante", desc: "Superficie con textura pensada para aumentar el agarre. Pisos, laterales, zonas donde no querés que resbale.", color: "#4A3C33" },
-    { name: "Bizon", desc: "Apariencia tipo cuero, granulada — pensada para dar un aspecto más natural.", color: "#5C3A28" },
-    { name: "Nate", desc: "Otro tramado/textura comercial. La terminación puede variar según el lote disponible.", color: "#7A5C42" }
-  ];
+  {
+    name: "Angus",
+    desc: "Textura relativamente fina y discreta. Muy versátil: asientos, interiores y muebles.",
+    image: "images/angus.jpg"
+  },
+  {
+    name: "Balcana",
+    desc: "Grabado más marcado. Ideal para tapicería general y automotor.",
+    image: "images/balcana.jpg"
+  },
+  {
+    name: "Antideslizante",
+    desc: "Superficie con textura pensada para aumentar el agarre.",
+    image: "images/antideslizante.jpg"
+  },
+  {
+    name: "Bizon",
+    desc: "Apariencia tipo cuero, granulada, pensada para dar un aspecto más natural.",
+    image: "images/bizon.jpg"
+  },
+  {
+    name: "Nate",
+    desc: "Tramado/textura comercial. La terminación puede variar según el lote disponible.",
+    image: "images/nate.jpg"
+  }
+];
 
   const grid = document.getElementById("swatchGrid");
   swatches.forEach(s => {
@@ -210,7 +235,8 @@
     const text = "Hola! Vi el catálogo de Cooperativa Santa Ana y quiero consultar por el grabado " + s.name + ".";
     const link = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text);
     card.innerHTML =
-      '<div class="swatch-img" style="background:' + s.color + ';"></div>' +
+      card.innerHTML =
+  '<img class="swatch-img" src="' + s.image + '" alt="Cuerina grabado ' + s.name + '">' +
       '<div class="swatch-body">' +
         '<h3>' + s.name + '</h3>' +
         '<p>' + s.desc + '</p>' +
